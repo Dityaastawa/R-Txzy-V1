@@ -6,7 +6,7 @@ let handler = async (m, { conn, text, command }) => {
   let teks = text ? text : m.quoted && m.quoted.text ? m.quoted.text : m.text
 
   if (/^attp1?$/i.test(command)) {
-    let res = await fetch(global.API('xteam', '/attp', { file: '', text: teks }))
+    let res = await fetch(global.API('https://api.lolhuman.xyz/api/attp?apikey=bca5b104e231d4708ce6dfa8&text=konichiwa', '/attp', { file: '', text: teks }))
     if (!res.ok) throw eror
     conn.sendFile(m.chat, global.API('xteam', '/attp', { file: '', text: teks }), 'attp.webp', '', m, false, { asSticker: true })
   }
